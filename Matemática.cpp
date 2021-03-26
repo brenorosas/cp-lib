@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 // Representação de ponto: x, y;
 #define x first
@@ -121,6 +121,17 @@ bool is_inside(polygon p, point q) {
     }
     return true;
 }
+
+int exp(int a, int b) {
+    int result = 1;
+    while (b > 0) {
+        if (b & 1) result = result * a % MOD;
+        b >>= 1;
+        a = a *a  % MOD;
+    }
+    return result;
+}
+
 //Combinatória + fatorial
 vector<int>fat(1002000);
 void precalc(){
@@ -132,4 +143,19 @@ void precalc(){
 }
 int comb(int n, int m){
     return fat[n] * exp(fat[n-m],MOD-2)%MOD * exp(fat[m],MOD-2)%MOD;
+}
+
+int Nmax = 1e7+20;
+int prime[10000020];
+void crivo(){
+    for(int i = 0; i < Nmax; i++){
+        prime[i] = i;
+    }
+    for(int i = 2; i*i < Nmax; i++){
+        if(prime[i] == i){
+            for(int j = i; j <= Nmax; j+=i){
+                prime[j] = i;
+            }
+        }
+    }
 }
