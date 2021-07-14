@@ -32,6 +32,7 @@ vector<int> suffix_Array(const string& in) {
   return out;
 }
 
+// manter a string s com o " " espaço no final
 //LCP: Array que contém as interseções entre sufixos (i,i+1);
 vector<int> suffix_Lcp(string &s, vector<int>&p){
     int n = s.size();
