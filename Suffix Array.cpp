@@ -77,52 +77,52 @@ bool substring_Search(string &p, string &s, vector<int>&vet){
     }
     return false;
 }
-//Se string p é substring de s, retorna a posição inicial da primeira substring p;
-int minSubstring_Search(string &p, string &s, vector<int>&vet){
-    int ini=0, fim = vet.size()-1;
+//Se string p é substring de s, retorna a primeira posição do vetor de sufixo que p é substring
+int minSubstring_Search(string &p, string &s, vector<int> &vet){
+    int ini = 0, fim = vet.size() - 1;
     int n = s.size();
     int m = p.size();
     int pos;
-    while(ini<=fim){
-        int media = (ini+fim)/2;
+    while(ini <= fim){
+        int media = (ini + fim) >> 1;
         string aux;
-        if(vet[media]+m>=n){
-            aux = s.substr(vet[media],n-vet[media]);
+        if(vet[media] + m >= n){
+            aux = s.substr(vet[media], n - vet[media]);
         }
         else{
-            aux = s.substr(vet[media],m);
+            aux = s.substr(vet[media], m);
         }
-        if(aux>=p){
-            fim=media-1;
-            pos=media;
+        if(aux >= p){
+            fim = media - 1;
+            pos = media;
         }
         else{
-            ini = media+1;
+            ini = media + 1;
         }
     }
     return pos;
 }
-//Se string p é substring de s, retorna a posição inicial da ultima substring p;
-int maxSubstring_Search(string &p, string &s, vector<int>&vet){
+//Se string p é substring de s, retorna a ultima posição do vetor de sufixo que p é substring
+int maxSubstring_Search(string &p, string &s, vector<int> &vet){
     int ini=0, fim = vet.size()-1;
     int n = s.size();
     int m = p.size();
     int pos;
-    while(ini<=fim){
-        int media = (ini+fim)/2;
+    while(ini <= fim){
+        int media = (ini+fim) >> 1;
         string aux;
-        if(vet[media]+m>=n){
-            aux = s.substr(vet[media],n-vet[media]);
+        if(vet[media] + m >= n){
+            aux = s.substr(vet[media],n - vet[media]);
         }
         else{
-            aux = s.substr(vet[media],m);
+            aux = s.substr(vet[media], m);
         }
         if(aux<=p){
             ini = media+1;
-            pos=media;
+            pos = media;
         }
         else{
-            fim=media-1;
+            fim = media-1;
         }
     }
     return pos;
