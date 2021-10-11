@@ -1,4 +1,3 @@
-// 
-for(int i = mask; i > 0; i = (i-1) & mask){
-    
+//
+for (int i = mask; i > 0; i = (i - 1) & mask) {
 }

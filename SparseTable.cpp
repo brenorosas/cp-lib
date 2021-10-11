@@ -1,5 +1,5 @@
-struct sparseTable{
-  vector<vector <int> > table;
+struct sparseTable {
+  vector<vector<int>> table;
   vector<int> lg2;
 
   void build(int n, vector<int> v) {
@@ -17,7 +17,8 @@ struct sparseTable{
     }
     for (int i = 0; i < lg2[n]; i++) {
       for (int j = 0; j < n; j++) {
-        if (j + (1 << i) >= n) break;
+        if (j + (1 << i) >= n)
+          break;
         table[i + 1][j] = min(table[i][j], table[i][j + (1 << i)]);
       }
     }
