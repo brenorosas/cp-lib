@@ -18,11 +18,11 @@ mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 double rad(double x) { return x * pi / 180.0; }
 
 int exp(int a, int b) {
-  int res = (a != 0) % M;
+  int res = (a != 0) % MOD;
   while (b > 0) {
     if (b & 1)
-      res = res * a % M;
-    a = a * a % M;
+      res = res * a % MOD;
+    a = a * a % MOD;
     b >>= 1;
   }
   return res;
