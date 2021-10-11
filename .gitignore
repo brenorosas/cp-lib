@@ -3,3 +3,4 @@ in
 generator-test-cases/tests/*
 generator-test-cases/statement.pdf
 a.out
+brute-tests/in
